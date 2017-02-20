@@ -1,6 +1,6 @@
 //
 //  ExampleController.swift
-//  Ahoy ( https://github.com/xmartlabs/Xniffer)
+//  Ahoy ( https://github.com/xmartlabs/Ahoy)
 //
 //  Copyright (c) 2017 Xmartlabs ( http://xmartlabs.com )
 //

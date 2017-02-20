@@ -1,6 +1,6 @@
 //
 //  BasePresenter.swift
-//  Ahoy ( https://github.com/xmartlabs/Xniffer)
+//  Ahoy (https://github.com/xmartlabs/Ahoy)
 //
 //  Copyright (c) 2017 Xmartlabs ( http://xmartlabs.com )
 //
@@ -25,9 +25,21 @@
 //
 import UIKit
 
-open class BasePresenter: OnboardingPresenter {
+public struct OnboardingSlide {
 
-    public typealias OnboardingData = (titleText: String, bodyText: String, image: UIImage?)
+    let titleText: String
+    let bodyText: String
+    let image: UIImage?
+
+    public init(titleText: String, bodyText: String, image: UIImage?) {
+        self.titleText = titleText
+        self.bodyText = bodyText
+        self.image = image
+    }
+
+}
+
+open class BasePresenter: OnboardingPresenter {
 
     // MARK: Customizable properties
     public var cellBackgroundColor: UIColor = .orange
@@ -35,16 +47,18 @@ open class BasePresenter: OnboardingPresenter {
     public var doneButtonTextColor: UIColor = .black
     public var textColor: UIColor = .white
     public var swipeLabelText = ""
-    public var titleFont: UIFont = UIFont.boldSystemFont(ofSize: 24)
-    public var bodyFont: UIFont = UIFont.systemFont(ofSize: 18)
-    public var model: [OnboardingData] = [
-        (titleText: "Title 1",
+    public var titleFont: UIFont = .boldSystemFont(ofSize: 24)
+    public var bodyFont: UIFont = .systemFont(ofSize: 18)
+    public var skipColor: UIColor = .white
+    public var skipTitle: String = NSLocalizedString("Skip", comment: "")
+    public var model: [OnboardingSlide] = [
+        OnboardingSlide(titleText: "Title 1",
          bodyText: "Subtitle 1",
          image: nil),
-        (titleText: "Title 2",
+        OnboardingSlide(titleText: "Title 2",
          bodyText: "Subtitle 2",
          image: nil),
-        (titleText: "Title 3",
+        OnboardingSlide(titleText: "Title 3",
          bodyText: "Subtitle 3",
          image: nil)
         ]
@@ -53,19 +67,21 @@ open class BasePresenter: OnboardingPresenter {
     public var onOnBoardingFinished: (() -> ())?
     public var onOnboardingSkipped: (() -> ())?
 
-    public var cellProviders: [CellProvider] {
-        return [.nib(
-                    name:"OnboardingCell",
-                    identifier: OnboardingCell.reuseIdentifier,
-                    bundle: Resources.bundle
-                )]
+    public var cellProviders: [Int: CellProvider] {
+        return [:]
     }
 
+    public var defaultProvider: CellProvider? = .nib(
+        name:"OnboardingCell",
+        identifier: OnboardingCell.reuseIdentifier,
+        bundle: Resources.bundle
+    )
+    
     public var pageCount: Int {
         return model.count
     }
 
-    public init() {}
+    public required init() {}
 
     open func visibilityChanged(for cell: UICollectionViewCell, at index: Int, amount: CGFloat) {
         guard let cell = cell as? OnboardingCell, index == pageCount - 1  else { return }
@@ -84,17 +100,8 @@ open class BasePresenter: OnboardingPresenter {
     open func style(collection: UICollectionView?) { }
 
     open func style(skip: UIButton?) {
-        skip?.setTitle("Skip", for: .normal)
-        skip?.setTitleColor(.white, for: .normal)
-    }
-
-    open func reuseIdentifier(for page: Int) -> String {
-        switch cellProviders.first! {
-        case .nib(_, let identifier, _):
-            return identifier
-        case .cellClass(_, let identifier):
-            return identifier
-        }
+        skip?.setTitle(skipTitle, for: .normal)
+        skip?.setTitleColor(skipColor, for: .normal)
     }
 
     @objc open func didFinishOnboarding() {

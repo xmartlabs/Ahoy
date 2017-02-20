@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name             = "Ahoy"
   s.version          = "1.0.0"
-  s.summary          = "A lightweight library to build onboardings."
-  s.homepage         = "https://github.com/mcousillas6/Ahoy"
+  s.summary          = "A lightweight swift library to build onboardings."
+  s.homepage         = "https://github.com/xmartlabs/Ahoy"
   s.license          = { type: 'MIT', file: 'LICENSE' }
   s.author           = { "Xmartlabs SRL" => "swift@xmartlabs.com" }
   s.source           = { git: "https://github.com/xmartlabs/Ahoy.git", tag: s.version.to_s }

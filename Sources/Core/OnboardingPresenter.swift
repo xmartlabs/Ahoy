@@ -1,6 +1,6 @@
 //
 //  OnboardingPresenter.swift
-//  Ahoy ( https://github.com/xmartlabs/Xniffer)
+//  Ahoy (https://github.com/xmartlabs/Ahoy)
 //
 //  Copyright (c) 2017 Xmartlabs ( http://xmartlabs.com )
 //
@@ -32,7 +32,11 @@ public protocol OnboardingPresenter: class {
         get
     }
 
-    var cellProviders: [CellProvider] {
+    var cellProviders: [Int: CellProvider] {
+        get
+    }
+
+    var defaultProvider: CellProvider? {
         get
     }
 
@@ -57,6 +61,22 @@ public protocol OnboardingPresenter: class {
     func style(cell: UICollectionViewCell, for page: Int)
 
     func reuseIdentifier(for page: Int) -> String
+
+}
+
+extension OnboardingPresenter {
+
+    public func reuseIdentifier(for page: Int) -> String {
+        guard let provider = cellProviders[page] == nil ? defaultProvider : cellProviders[page] else {
+            return ""
+        }
+        switch provider {
+        case .nib(_, let identifier, _):
+            return identifier
+        case .cellClass(_, let identifier):
+            return identifier
+        }
+    }
 
 }
 

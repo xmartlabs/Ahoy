@@ -1,6 +1,6 @@
 //
 //  MovieFanOnboardingController.swift
-//  Ahoy ( https://github.com/xmartlabs/Xniffer)
+//  Ahoy ( https://github.com/xmartlabs/Ahoy)
 //
 //  Copyright (c) 2017 Xmartlabs ( http://xmartlabs.com )
 //
@@ -24,7 +24,6 @@
 // THE SOFTWARE.
 //
 
-import UIKit
 import Ahoy
 
 class MovieFanOnboardingController: OnboardingViewController {
@@ -41,16 +40,16 @@ class MovieFanOnboardingController: OnboardingViewController {
 
 class MovieFanPresenter: BasePresenter {
 
-    override init() {
+    required init() {
         super.init()
         model = [
-            (titleText: "For movie lovers",
+            OnboardingSlide(titleText: "For movie lovers",
              bodyText: "View what’s in theaters, trending movies and much more.",
              image: #imageLiteral(resourceName: "onboarding1")),
-            (titleText: "Indiana would use it",
+            OnboardingSlide(titleText: "Indiana would use it",
              bodyText: "It’s just so sleek and smooth. MovieFan is for you, the fan of movies.",
              image: #imageLiteral(resourceName: "onboarding2")),
-            (titleText: "Ready?",
+            OnboardingSlide(titleText: "Ready?",
              bodyText: "The onboarding is finished, you are now ready to enjoy movies like never before.",
              image: #imageLiteral(resourceName: "onboarding3"))
         ]

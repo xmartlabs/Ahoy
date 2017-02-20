@@ -64,7 +64,7 @@ pod 'Ahoy', '~> 1.0'
 To install Ahoy, simply add the following line to your Cartfile:
 
 ```ogdl
-github "mcousillas6/Ahoy" ~> 1.0
+github "xmartlabs/Ahoy" ~> 1.0
 ```
 
 ## Author

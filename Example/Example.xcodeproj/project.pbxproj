@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A44D0A31E5B1C300006674A /* MovieFanOnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3BB011E521EF300CA078E /* MovieFanOnboardingController.swift */; };
+		1A44D0A41E5B1C4F0006674A /* Ahoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9CAB221D89C756006E1824 /* Ahoy.framework */; };
+		1A44D0A51E5B1C4F0006674A /* Ahoy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9CAB221D89C756006E1824 /* Ahoy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1AC3BB021E521EF300CA078E /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3BB001E521EF300CA078E /* ExampleController.swift */; };
-		1AC3BB031E521EF300CA078E /* MovieFanOnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3BB011E521EF300CA078E /* MovieFanOnboardingController.swift */; };
 		287D0A721C4B7877004566D6 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287D0A711C4B7877004566D6 /* ExampleUITests.swift */; };
 		28F828D01C4B714D00330CF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F828CF1C4B714D00330CF4 /* AppDelegate.swift */; };
 		28F828D51C4B714D00330CF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F828D31C4B714D00330CF4 /* Main.storyboard */; };
@@ -17,6 +19,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1A44D0A61E5B1C4F0006674A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 287D0A741C4B7B26004566D6 /* Ahoy.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 28F8287C1C494B2C00330CF4;
+			remoteInfo = Ahoy;
+		};
 		28F828E11C4B714D00330CF4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 28F828C41C4B714D00330CF4 /* Project object */;
@@ -47,6 +56,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1A44D0A51E5B1C4F0006674A /* Ahoy.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A44D0A41E5B1C4F0006674A /* Ahoy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +163,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1A44D0A71E5B1C4F0006674A /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -187,6 +199,7 @@
 				TargetAttributes = {
 					28F828CB1C4B714D00330CF4 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 6F2G55XL63;
 						LastSwiftMigration = 0800;
 					};
 					28F828DF1C4B714D00330CF4 = {
@@ -263,7 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AC3BB031E521EF300CA078E /* MovieFanOnboardingController.swift in Sources */,
+				1A44D0A31E5B1C300006674A /* MovieFanOnboardingController.swift in Sources */,
 				1AC3BB021E521EF300CA078E /* ExampleController.swift in Sources */,
 				28F828D01C4B714D00330CF4 /* AppDelegate.swift in Sources */,
 			);
@@ -280,6 +293,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1A44D0A71E5B1C4F0006674A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Ahoy;
+			targetProxy = 1A44D0A61E5B1C4F0006674A /* PBXContainerItemProxy */;
+		};
 		28F828E21C4B714D00330CF4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 28F828CB1C4B714D00330CF4 /* Example */;
@@ -400,6 +418,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6F2G55XL63;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.Example;
@@ -413,6 +432,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6F2G55XL63;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.Example;

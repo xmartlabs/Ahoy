@@ -1,6 +1,6 @@
 //
 //  OnboardingViewController.swift
-//  Ahoy ( https://github.com/xmartlabs/Xniffer)
+//  Ahoy ( https://github.com/xmartlabs/Ahoy)
 //
 //  Copyright (c) 2017 Xmartlabs ( http://xmartlabs.com )
 //
@@ -27,14 +27,16 @@
 import Foundation
 import UIKit
 
-open class OnboardingViewController: UIViewController {
+open class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     public var presenter: OnboardingPresenter = BasePresenter()
     public var pageControlBottomConstant: CGFloat = 15.0
 
     public var currentPage = 0 {
         didSet {
-            pageChanged(to: currentPage)
+            if isViewLoaded {
+                pageChanged(to: currentPage)
+            }
         }
     }
 
@@ -76,18 +78,15 @@ open class OnboardingViewController: UIViewController {
         collectionView?.delegate = self
 
         presenter.cellProviders.forEach {
-            switch $0 {
-            case .nib(let name, let identifier, let bundle):
-                collectionView?.register(UINib(nibName: name, bundle: bundle), forCellWithReuseIdentifier: identifier)
-            case .cellClass(let className, let identifier):
-                collectionView?.register(className, forCellWithReuseIdentifier: identifier)
-            }
+            register(with: $1)
         }
+
+        register(with: presenter.defaultProvider)
 
         presenter.style(collection: collectionView)
     }
 
-    func setupPageControl() {
+    open func setupPageControl() {
         if pageControl == nil {
             createPageControl()
         }
@@ -95,7 +94,7 @@ open class OnboardingViewController: UIViewController {
         presenter.style(pageControl: pageControl)
     }
 
-    func setupSkipButton() {
+    open func setupSkipButton() {
         presenter.style(skip: skipButton)
     }
 
@@ -110,12 +109,15 @@ open class OnboardingViewController: UIViewController {
     open func createCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        let collection = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)
-        collection.backgroundColor = .clear
-        collection.isPagingEnabled = true
-        collection.bounces = false
-        collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.showsHorizontalScrollIndicator = false
+        let collection: UICollectionView = {
+            let collection = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)
+            collection.backgroundColor = .clear
+            collection.isPagingEnabled = true
+            collection.bounces = false
+            collection.translatesAutoresizingMaskIntoConstraints = false
+            collection.showsHorizontalScrollIndicator = false
+            return collection
+        }()
         let views: [String: Any?] = ["collectionView": collection]
         view.addSubview(collection)
         view.sendSubview(toBack: collection)
@@ -138,10 +140,6 @@ open class OnboardingViewController: UIViewController {
         self.pageControl = pageControl
     }
 
-}
-
-extension OnboardingViewController: UICollectionViewDelegate {
-
     open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard let collection = collectionView else { return }
         let page = Int(collection.contentOffset.x / collection.bounds.width)
@@ -158,10 +156,6 @@ extension OnboardingViewController: UICollectionViewDelegate {
         }
     }
 
-}
-
-extension OnboardingViewController: UICollectionViewDataSource {
-
     open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter.pageCount
     }
@@ -171,6 +165,16 @@ extension OnboardingViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  reuseIdentifier, for: indexPath)
         presenter.style(cell: cell, for: indexPath.row)
         return cell
+    }
+
+    private func register(with provider: CellProvider?) {
+        guard let provider = provider else { return }
+        switch provider {
+        case .nib(let name, let identifier, let bundle):
+            collectionView?.register(UINib(nibName: name, bundle: bundle), forCellWithReuseIdentifier: identifier)
+        case .cellClass(let className, let identifier):
+            collectionView?.register(className, forCellWithReuseIdentifier: identifier)
+        }
     }
 
 }

@@ -26,7 +26,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aYZ-wP-Am9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="991" y="-416"/>
+            <point key="canvasLocation" x="927" y="-338"/>
         </scene>
         <!--Bottom Onobarding Controller-->
         <scene sceneID="vjZ-zd-wgy">
@@ -101,8 +101,8 @@
                                     <action selector="movieTapped:" destination="wrZ-ki-jT4" eventType="touchUpInside" id="NNb-Ee-T1d"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwc-Ps-k3Z">
-                                <rect key="frame" x="164" y="370" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwc-Ps-k3Z">
+                                <rect key="frame" x="161.5" y="370" width="51" height="30"/>
                                 <state key="normal" title="Bottom"/>
                                 <connections>
                                     <action selector="bottomTapped:" destination="wrZ-ki-jT4" eventType="touchUpInside" id="rnQ-0s-xv2"/>
