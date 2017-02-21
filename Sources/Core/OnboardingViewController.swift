@@ -77,10 +77,8 @@ open class OnboardingViewController: UIViewController, UICollectionViewDelegate,
         collectionView?.dataSource = self
         collectionView?.delegate = self
 
-        presenter.cellProviders.forEach {
-            register(with: $1)
-        }
-
+        presenter.cellProviders.values.forEach(register(with:))
+        
         register(with: presenter.defaultProvider)
 
         presenter.style(collection: collectionView)

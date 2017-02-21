@@ -44,7 +44,7 @@ open class BottomOnobardingController: OnboardingViewController {
 
     override open func pageChanged(to page: Int) {
         pageControl?.currentPage = page
-        nextButton.setTitle( page == presenter.pageCount - 1 ? NSLocalizedString("Done", comment: "") : NSLocalizedString("Next", comment: ""), for: .normal)
+        nextButton.setTitle(page == presenter.pageCount - 1 ? NSLocalizedString("Done", comment: "") : NSLocalizedString("Next", comment: ""), for: .normal)
     }
 
     open func nextTapped(sender: UIButton) {
