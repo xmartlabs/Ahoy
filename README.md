@@ -12,17 +12,69 @@ By [Xmartlabs SRL](http://xmartlabs.com).
 
 ## Introduction
 
-Ahoy is a library to .......
+Ahoy is a swift library that helps you build awesome onboarding experiences for your users.
 
-<!-- <img src="Example/Ahoy.gif" width="300"/> -->
+
+<img src="./movie.gif" width="300" height="550"/>
+<img src="./bottom.gif" width="300" height="550"/>
 
 ## Usage
+In order to setup your onboarding you need to define 2 components:
+* The specific view controller that you are going to use, which should subclass from `OnboardingViewController`. This will handle all the specific logic related to displaying the slides and managing any global control that you want to use (an skip button for example).
+* A `Presenter` which should implement the protocol `OnboardingPresenter`. This will handle all the specific functionality of each cell (which text goes where, the type of cells, etc.)
+
+#### Basic setup
+* Create your own presenter implementation, either implementing `OnboardingPresenter` protocol or subclassing from `BasePresenter`.
+* Create your `OnboardingViewController` subclass and set the `presenter` property to an instance of your presenter's class. This must be done **before** calling `super.viewDidLoad()`.
+
+After this you are ready to go! You can add any other ui components that you want via IBOutlets or directly by code.
+##### Example
 
 ```swift
 import Ahoy
-..
-.
+class MovieFanOnboardingController: OnboardingViewController {
+
+    override func viewDidLoad() {
+        presenter = MovieFanPresenter()
+        presenter.onOnBoardingFinished = { [weak self] in
+            _ = self?.navigationController?.popViewController(animated: true)
+        }
+        super.viewDidLoad()
+    }
+
+}
+
+class MovieFanPresenter: BasePresenter {
+  // Your presenter implementation's here
+}
 ```
+
+#### Callbacks
+In order to manage user interaction, when the onboarding is finished, skipped or when a slide is being displayed. Ahoy provides a few helpers to manage this consistently:
+  * `onOnboardingSkipped`: Is called by the controller when the user taps on the skip action.
+  * `onOnBoardingFinished`: Is called by the controller when the user taps on finish.
+  * `visibilityChanged(for cell: UICollectionViewCell, at index: Int, amount: CGFloat)`: is called each time the visibility of a cell changes, this can be used to implement some cool animations between each cell.
+
+#### BasePresenter
+By default, Ahoy provides an implementation of `OnboardingPresenter`, `BasePresenter` which handles basic functionality and has some customization parameters:
+
+```swift
+public var cellBackgroundColor: UIColor
+public var doneButtonColor: UIColor
+public var doneButtonTextColor: UIColor
+public var textColor: UIColor
+public var swipeLabelText: String
+public var titleFont: UIFont
+public var bodyFont: UIFont
+public var skipColor: UIColor
+public var skipTitle: String
+public var model: [OnboardingSlide]
+public var onOnBoardingFinished: (() -> ())?
+public var onOnboardingSkipped: (() -> ())?
+```
+
+#### BottomOnobardingController
+Ahoy provides another implementation of the `OnboardingViewController` that has global controls at the bottom of the screen. The `BottomOnobardingController` uses `BottomPresenter` as a Presenter.
 
 ## Requirements
 
@@ -42,8 +94,6 @@ If you use **Ahoy** in your app We would love to hear about it! Drop us a line o
 ## Examples
 
 Follow these 3 steps to run Example project: Clone Ahoy repository, open Ahoy workspace and run the *Example* project.
-
-You can also experiment and learn with the *Ahoy Playground* which is contained in *Ahoy.workspace*.
 
 ## Installation
 
@@ -70,12 +120,6 @@ github "xmartlabs/Ahoy" ~> 1.0
 ## Author
 
 * [Mauricio Cousillas](https://github.com/mcousillas6)
-
-## FAQ
-
-#### How to .....
-
-You can do it by conforming to .....
 
 # Change Log
 
