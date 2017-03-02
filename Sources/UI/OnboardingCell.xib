@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="FSN-Ks-O1y" userLabel="OnboardingCell" customClass="OnboardingCell" customModule="Ahoy">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="744" translatesAutoresizingMaskIntoConstraints="NO" id="gXa-jc-WlK">
+                        <rect key="frame" x="0.0" y="60" width="320" height="233"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="gXa-jc-WlK" secondAttribute="height" multiplier="375:273" id="AMi-VW-krr"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="11L-NS-V2c">
+                        <rect key="frame" x="16" y="323" width="288" height="17"/>
+                        <fontDescription key="fontDescription" name="HoeflerText-Black" family="Hoefler Text" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0QE-1l-A6K">
+                        <rect key="frame" x="40" y="458" width="240" height="50"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="WMw-Is-8jl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
+                        <state key="normal" title="Button">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ttW-4c-jX8">
+                        <rect key="frame" x="16" y="358" width="288" height="20"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8SQ-Tk-i4j">
+                        <rect key="frame" x="139" y="488" width="42" height="20"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="11L-NS-V2c" firstAttribute="top" secondItem="gXa-jc-WlK" secondAttribute="bottom" constant="30" id="5er-uS-thE"/>
+                <constraint firstItem="gXa-jc-WlK" firstAttribute="top" secondItem="FSN-Ks-O1y" secondAttribute="top" constant="60" id="AI1-8s-0Em"/>
+                <constraint firstAttribute="bottom" secondItem="0QE-1l-A6K" secondAttribute="bottom" constant="60" id="JUS-0L-rts"/>
+                <constraint firstAttribute="bottom" secondItem="8SQ-Tk-i4j" secondAttribute="bottom" constant="60" id="K0N-LU-wDd"/>
+                <constraint firstItem="ttW-4c-jX8" firstAttribute="leading" secondItem="11L-NS-V2c" secondAttribute="leading" id="Lml-zG-y0X"/>
+                <constraint firstItem="11L-NS-V2c" firstAttribute="leading" secondItem="FSN-Ks-O1y" secondAttribute="leading" constant="16" id="NlY-2V-Aab"/>
+                <constraint firstAttribute="trailing" secondItem="gXa-jc-WlK" secondAttribute="trailing" id="VUd-0F-Kq2"/>
+                <constraint firstAttribute="trailing" secondItem="11L-NS-V2c" secondAttribute="trailing" constant="16" id="XBw-VZ-H0P"/>
+                <constraint firstItem="gXa-jc-WlK" firstAttribute="leading" secondItem="FSN-Ks-O1y" secondAttribute="leading" id="bfq-6c-AjF"/>
+                <constraint firstItem="0QE-1l-A6K" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ttW-4c-jX8" secondAttribute="bottom" constant="20" id="fpP-gW-Lzj"/>
+                <constraint firstItem="8SQ-Tk-i4j" firstAttribute="centerX" secondItem="FSN-Ks-O1y" secondAttribute="centerX" id="lc7-Ft-xba"/>
+                <constraint firstItem="0QE-1l-A6K" firstAttribute="centerX" secondItem="FSN-Ks-O1y" secondAttribute="centerX" id="qgB-Mc-PoQ"/>
+                <constraint firstItem="ttW-4c-jX8" firstAttribute="trailing" secondItem="11L-NS-V2c" secondAttribute="trailing" id="rKx-ss-Z6L"/>
+                <constraint firstItem="0QE-1l-A6K" firstAttribute="width" secondItem="FSN-Ks-O1y" secondAttribute="width" multiplier="0.75" id="scj-l6-cv0"/>
+                <constraint firstItem="11L-NS-V2c" firstAttribute="centerX" secondItem="FSN-Ks-O1y" secondAttribute="centerX" id="ssE-bV-SeH"/>
+                <constraint firstItem="ttW-4c-jX8" firstAttribute="top" secondItem="11L-NS-V2c" secondAttribute="bottom" constant="18" id="w0Z-qf-Ydj"/>
+            </constraints>
+            <size key="customSize" width="386" height="647"/>
+            <connections>
+                <outlet property="bodyLabel" destination="ttW-4c-jX8" id="ymg-3X-ZIE"/>
+                <outlet property="doneButton" destination="0QE-1l-A6K" id="O9r-Wk-Xag"/>
+                <outlet property="doneButtonBottomConstraint" destination="JUS-0L-rts" id="B6n-As-dnr"/>
+                <outlet property="imageView" destination="gXa-jc-WlK" id="DnM-7j-eOa"/>
+                <outlet property="imageViewTopConstraint" destination="AI1-8s-0Em" id="ivR-Zc-GFq"/>
+                <outlet property="label" destination="11L-NS-V2c" id="zSZ-DQ-cIN"/>
+                <outlet property="swipeLabel" destination="8SQ-Tk-i4j" id="Hsi-jX-48T"/>
+            </connections>
+            <point key="canvasLocation" x="-74" y="148.5"/>
+        </collectionViewCell>
+    </objects>
+</document>
