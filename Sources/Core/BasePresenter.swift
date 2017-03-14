@@ -27,9 +27,9 @@ import UIKit
 
 public struct OnboardingSlide {
 
-    let titleText: String
-    let bodyText: String
-    let image: UIImage?
+    public let titleText: String
+    public let bodyText: String
+    public let image: UIImage?
 
     public init(titleText: String, bodyText: String, image: UIImage?) {
         self.titleText = titleText
