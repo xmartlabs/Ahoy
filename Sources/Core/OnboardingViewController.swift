@@ -40,9 +40,9 @@ open class OnboardingViewController: UIViewController, UICollectionViewDelegate,
         }
     }
 
-    @IBOutlet weak var collectionView: UICollectionView?
-    @IBOutlet weak var pageControl: UIPageControl?
-    @IBOutlet weak var skipButton: UIButton?
+    @IBOutlet public weak var collectionView: UICollectionView?
+    @IBOutlet public weak var pageControl: UIPageControl?
+    @IBOutlet public weak var skipButton: UIButton?
 
     override open var prefersStatusBarHidden: Bool {
         return true
