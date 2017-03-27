@@ -94,6 +94,15 @@ open class OnboardingViewController: UIViewController, UICollectionViewDelegate,
 
     open func setupSkipButton() {
         presenter.style(skip: skipButton)
+        skipButton?.addTarget(self, action: #selector(skipPressed), for: .touchUpInside)
+    }
+
+    func skipPressed() {
+        guard let skipAction = presenter.onOnboardingSkipped else {
+            return
+        }
+
+        skipAction()
     }
 
     open func skipOnboarding() {
