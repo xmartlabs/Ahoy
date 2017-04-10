@@ -51,7 +51,7 @@ open class BasePresenter: OnboardingPresenter {
     public var bodyFont: UIFont = .systemFont(ofSize: 18)
     public var skipColor: UIColor = .white
     public var skipTitle: String = NSLocalizedString("Skip", comment: "")
-    public var model: [OnboardingSlide] = [
+    open var model: [OnboardingSlide] = [
         OnboardingSlide(titleText: "Title 1",
          bodyText: "Subtitle 1",
          image: nil),
@@ -81,7 +81,7 @@ open class BasePresenter: OnboardingPresenter {
         return model.count
     }
 
-    public required init() {}
+    public init() {}
 
     open func visibilityChanged(for cell: UICollectionViewCell, at index: Int, amount: CGFloat) {
         guard let cell = cell as? OnboardingCell, index == pageCount - 1  else { return }
