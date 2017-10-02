@@ -97,7 +97,7 @@ open class OnboardingViewController: UIViewController, UICollectionViewDelegate,
         skipButton?.addTarget(self, action: #selector(skipPressed), for: .touchUpInside)
     }
 
-    func skipPressed() {
+    @objc func skipPressed() {
         guard let skipAction = presenter.onOnboardingSkipped else {
             return
         }
@@ -125,7 +125,7 @@ open class OnboardingViewController: UIViewController, UICollectionViewDelegate,
             collection.showsHorizontalScrollIndicator = false
             return collection
         }()
-        let views: [String: Any?] = ["collectionView": collection]
+        let views: [String: Any] = ["collectionView": collection]
         view.addSubview(collection)
         view.sendSubview(toBack: collection)
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[collectionView]|", options: [], metrics: nil, views: views))

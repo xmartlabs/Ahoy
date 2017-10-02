@@ -39,7 +39,7 @@ open class BottomOnobardingController: OnboardingViewController {
     open func setupNextButton() {
         nextButton.setTitle(NSLocalizedString("Next", comment: ""), for: .normal)
         nextButton.setTitleColor(.white, for: .normal)
-        nextButton.addTarget(self, action: #selector(nextTapped(sender:)), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(BottomOnobardingController.nextTapped(sender:)), for: .touchUpInside)
     }
 
     override open func pageChanged(to page: Int) {
@@ -47,7 +47,7 @@ open class BottomOnobardingController: OnboardingViewController {
         nextButton.setTitle(page == presenter.pageCount - 1 ? NSLocalizedString("Done", comment: "") : NSLocalizedString("Next", comment: ""), for: .normal)
     }
 
-    open func nextTapped(sender: UIButton) {
+    @objc open func nextTapped(sender: UIButton) {
         if currentPage == presenter.pageCount - 1 {
             _ = navigationController?.popViewController(animated: true)
         } else {

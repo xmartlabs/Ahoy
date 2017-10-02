@@ -2,7 +2,7 @@
 
 <p align="left">
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
-<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift3-compatible-4BC51D.svg?style=flat" alt="Swift 3 compatible" /></a>
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift4-compatible-4BC51D.svg?style=flat" alt="Swift 3 compatible" /></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible" /></a>
 <a href="https://cocoapods.org/pods/Ahoy"><img src="https://img.shields.io/cocoapods/v/Ahoy.svg" alt="CocoaPods compatible" /></a>
 <a href="https://raw.githubusercontent.com/xmartlabs/Ahoy/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License: MIT" /></a>
@@ -79,7 +79,7 @@ Ahoy provides another implementation of the `OnboardingViewController` that has 
 ## Requirements
 
 * iOS 9.0+
-* Xcode 8.0+
+* Xcode 9.0+
 
 ## Getting involved
 
@@ -104,7 +104,7 @@ Follow these 3 steps to run Example project: Clone Ahoy repository, open Ahoy wo
 To install Ahoy, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Ahoy', '~> 1.0'
+pod 'Ahoy', '~> 2.0'
 ```
 
 #### Carthage
@@ -114,7 +114,7 @@ pod 'Ahoy', '~> 1.0'
 To install Ahoy, simply add the following line to your Cartfile:
 
 ```ogdl
-github "xmartlabs/Ahoy" ~> 1.0
+github "xmartlabs/Ahoy" ~> 2.0
 ```
 
 ## Author

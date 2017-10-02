@@ -40,7 +40,7 @@ class MovieFanOnboardingController: OnboardingViewController {
 
 class MovieFanPresenter: BasePresenter {
 
-    required init() {
+    override init() {
         super.init()
         model = [
             OnboardingSlide(titleText: "For movie lovers",
@@ -53,7 +53,7 @@ class MovieFanPresenter: BasePresenter {
              bodyText: "The onboarding is finished, you are now ready to enjoy movies like never before.",
              image: #imageLiteral(resourceName: "onboarding3"))
         ]
-        doneButtonColor = UIColor(colorLiteralRed: 255/255, green: 78/255, blue: 73/255, alpha: 1)
+        doneButtonColor = UIColor(red: 255/255, green: 78/255, blue: 73/255, alpha: 1)
         doneButtonTextColor = .white
         cellBackgroundColor = .black
         textColor = .white
